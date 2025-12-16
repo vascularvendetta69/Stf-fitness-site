@@ -3,230 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <title>STF Fitness – Client Intake Form</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     :root {
-      --bg: #0f1016;
-      --card: #181a22;
+      --bg: #0f0f10;
+      --card: #18181b;
       --accent: #f97316;
       --accent-soft: rgba(249,115,22,0.2);
       --text: #f9fafb;
       --muted: #9ca3af;
-      --border: #272a34;
-      --radius: 12px;
+      --border: #27272f;
+      --radius: 10px;
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 32px 16px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0%, #020617 60%);
+      font-family: var(--font);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
       color: var(--text);
     }
 
-    .container {
-      max-width: 720px;
+    .page {
+      max-width: 900px;
       margin: 0 auto;
+      padding: 24px 16px 48px;
     }
 
-    h1 {
+    header {
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 24px;
     }
 
-    p.subtitle {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 32px;
+    .logo {
+      width: 110px;
+      border-radius: 999px;
+      border: 2px solid var(--accent);
+      padding: 6px;
+      background: #020617;
+      margin-bottom: 12px;
     }
 
-    form {
-      background: var(--card);
-      padding: 28px;
-      border-radius: var(--radius);
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .card {
+      background: rgba(12,12,16,0.96);
+      border-radius: 18px;
       border: 1px solid var(--border);
+      padding: 28px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.75);
+    }
+
+    h1 { text-align: center; margin-bottom: 6px; }
+    .subtitle { text-align: center; color: var(--muted); margin-bottom: 20px; }
+
+    .section {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 16px;
     }
 
     .section-title {
-      margin-top: 32px;
-      margin-bottom: 12px;
-      font-weight: 600;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .field {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .half {
+      width: calc(50% - 5px);
     }
 
     label {
       display: block;
-      margin-top: 14px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
       color: var(--muted);
     }
 
-    input,
-    textarea,
-    select {
+    input, select, textarea {
       width: 100%;
-      margin-top: 6px;
-      padding: 12px;
+      padding: 8px 10px;
       border-radius: 8px;
-      background: #0f172a;
       border: 1px solid var(--border);
+      background: #020617;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .row > div {
-      flex: 1;
-      min-width: 220px;
-    }
+    textarea { min-height: 70px; resize: vertical; }
 
     .radio-group {
       display: flex;
-      gap: 16px;
-      margin-top: 8px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .radio-group label {
       display: flex;
       align-items: center;
       gap: 6px;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    button {
-      margin-top: 32px;
-      width: 100%;
-      padding: 14px;
+      padding: 6px 10px;
       border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #fb923c, #f97316);
-      color: #000;
-      font-weight: 600;
-      font-size: 1rem;
+      border: 1px solid var(--border);
       cursor: pointer;
     }
 
-    button:hover {
-      opacity: 0.9;
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 16px;
-      font-size: 0.75rem;
-      color: var(--muted);
+    .submit-btn {
+      background: linear-gradient(to right, #f97316, #ea580c);
+      border: none;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 600;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>STF Fitness Client Intake</h1>
-    <p class="subtitle">
-      This helps me understand your goals, lifestyle, and how I can coach you best.
-    </p>
+<div class="page">
+<header>
+  <img src="https://i.imgur.com/2gEg9gA.jpeg" class="logo" alt="STF Fitness Logo">
+  <div class="brand-name">STF FITNESS</div>
+</header>
 
-    <!-- FORM START -->
-    <form action="https://formspree.io/f/xvgenlny" method="POST">
+<div class="card">
+<h1>Online Coaching – Client Intake Form</h1>
+<p class="subtitle">Fill this out honestly so I can build a plan that actually fits your life.</p>
 
-      <div class="section-title">Basic Information</div>
+<form action="https://formspree.io/f/XXXXXXX" method="POST">
 
-      <label>Full Name</label>
-      <input type="text" name="name" required>
+<!-- PERSONAL INFO -->
+<div class="section">
+<div class="section-title">Personal Information</div>
 
-      <label>Email Address</label>
-      <input type="email" name="email" required>
-
-      <div class="row">
-        <div>
-          <label>Phone (optional)</label>
-          <input type="tel" name="phone">
-        </div>
-        <div>
-          <label>Instagram Handle (optional)</label>
-          <input type="text" name="instagram" placeholder="@username">
-        </div>
-      </div>
-
-      <div class="section-title">Nutrition</div>
-
-      <label>How many meals/snacks per day?</label>
-      <input type="text" name="meals_per_day" placeholder="e.g. 3 meals + 1 snack">
-
-      <label>Do you track calories or macros?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="tracks_macros" value="Yes"> Yes</label>
-        <label><input type="radio" name="tracks_macros" value="No"> No</label>
-      </div>
-
-      <label>Foods you enjoy / want included</label>
-      <textarea name="liked_foods"></textarea>
-
-      <label>Foods you dislike or won’t eat</label>
-      <textarea name="disliked_foods"></textarea>
-
-      <label>Allergies or intolerances</label>
-      <textarea name="allergies" placeholder="Dairy, gluten, nuts, seafood, etc."></textarea>
-
-      <div class="row">
-        <div>
-          <label>How many times per week do you eat out?</label>
-          <input type="number" name="eat_out_frequency">
-        </div>
-        <div>
-          <label>How often do you drink alcohol?</label>
-          <select name="alcohol_frequency">
-            <option value="">Select…</option>
-            <option>Never</option>
-            <option>Occasionally</option>
-            <option>Weekends</option>
-            <option>Daily</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="section-title">Coaching Style & Logistics</div>
-
-      <label>Do you prefer tough-love or supportive coaching?</label>
-      <select name="coaching_style">
-        <option value="">Select…</option>
-        <option>Tough-love</option>
-        <option>Supportive</option>
-        <option>Balanced</option>
-      </select>
-
-      <label>Are you okay with weekly check-ins and progress photos?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="checkins" value="Yes"> Yes</label>
-        <label><input type="radio" name="checkins" value="No"> No</label>
-      </div>
-
-      <!-- Optional spam protection -->
-      <input type="text" name="_gotcha" style="display:none">
-
-      <button type="submit">Submit Intake Form</button>
-    </form>
-
-    <footer>
-      Built by STF Fitness
-    </footer>
+<div class="field-row">
+  <div class="field half">
+    <label>Full Name</label>
+    <input name="Full Name" required>
   </div>
+  <div class="field half">
+    <label>Email</label>
+    <input type="email" name="Email" required>
+  </div>
+</div>
+
+<div class="field-row">
+  <div class="field half">
+    <label>Phone Number</label>
+    <input name="Phone" required>
+  </div>
+  <div class="field half">
+    <label>Instagram (optional)</label>
+    <input name="Instagram">
+  </div>
+</div>
+
+<div class="field-row">
+  <div class="field half">
+    <label>Age</label>
+    <input type="number" name="Age">
+  </div>
+  <div class="field half">
+    <label>Gender</label>
+    <select name="Gender" required>
+      <option value="">Select…</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+</div>
+
+<div class="field-row">
+  <div class="field half">
+    <label>Height</label>
+    <input name="Height">
+  </div>
+  <div class="field half">
+    <label>Current Weight</label>
+    <input name="Weight">
+  </div>
+</div>
+
+<div class="field">
+  <label>Location</label>
+  <input name="Location">
+</div>
+</div>
+
+<!-- GOALS -->
+<div class="section">
+<div class="section-title">Goals & Motivation</div>
+
+<label>Primary Goal</label>
+<select name="Primary Goal">
+  <option>Fat loss</option>
+  <option>Build muscle</option>
+  <option>Recomp</option>
+  <option>Strength</option>
+</select>
+
+<label>Why now?</label>
+<textarea name="Why Now"></textarea>
+</div>
+
+<!-- TRAINING -->
+<div class="section">
+<div class="section-title">Training</div>
+
+<label>Have you trained before?</label>
+<div class="radio-group">
+  <label><input type="radio" name="Trained Before" value="Yes">Yes</label>
+  <label><input type="radio" name="Trained Before" value="No">No</label>
+</div>
+
+<label>Days per week you can train</label>
+<input type="number" name="Training Days">
+</div>
+
+<!-- NUTRITION -->
+<div class="section">
+<div class="section-title">Nutrition</div>
+
+<label>Do you track macros?</label>
+<div class="radio-group">
+  <label><input type="radio" name="Track Macros" value="Yes">Yes</label>
+  <label><input type="radio" name="Track Macros" value="No">No</label>
+</div>
+
+<label>Foods you like</label>
+<textarea name="Food Likes"></textarea>
+
+<label>Foods you avoid</label>
+<textarea name="Food Dislikes"></textarea>
+</div>
+
+<!-- SUBMIT -->
+<div class="footer">
+<span>Built by STF Fitness</span>
+<button class="submit-btn" type="submit">Submit Intake Form</button>
+</div>
+
+</form>
+</div>
+</div>
 </body>
 </html>
