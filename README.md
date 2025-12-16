@@ -263,8 +263,7 @@ Homepage
         </p>
         <p>
           Because of that experience, my clients get access to the same principles, structure,
-          and systems used by high-level athletes — <span class="highlight">at a fraction
-          of the price</span>.
+          and systems used by high-level athletes.
         </p>
         <p>
           I’m a Red Seal tradesman and a coach who believes in clarity, structure, and results.
@@ -339,13 +338,19 @@ Homepage
         I review every application personally.
       </p>
       <div style="margin-top: 10px;">
-        <a href="intakeform.html" class="cta-btn">Apply for Coaching</a>
+        <a href="intakeform.html" class="cta-btn">Apply for no obligation consultation</a>
       </div>
     </section>
 
     <div class="footer">
-      STF Fitness • <a href="https://instagram.com/stronger_than_fu" target="_blank">@stronger_than_fu</a>
+     <div class="footer-line">
+      STF Fitness • <a href="https://instagram.com/stronger_than_fu" target="_blank">@stronger_than_fu
+       </a>
+     </div>
+
+  <div class="footer-line sub">
+      My Personal Journey • <a href="https://instagram.com/vascular_vendetta_69" target="_blank">@vascular_vendetta_69
+      </a>
     </div>
   </div>
-</body>
-</html>
+ 
